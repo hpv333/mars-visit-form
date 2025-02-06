@@ -1,4 +1,3 @@
-// src/components/HealthSafety.js
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,14 +8,14 @@ const schema = yup.object().shape({
   healthDeclaration: yup
     .string()
     .required("Health declaration is required")
-    .min(10, "Please provide more detailed health information"),
+    .min(50, "Please provide more detailed health information"),
   emergencyContact: yup
     .string()
     .required("Emergency contact is required")
     .min(10, "Please provide complete emergency contact information"),
 });
 
-const HealthSafety = ({ formData, setFormData, prevStep }) => {
+const HealthSafety = ({ formData, setFormData, prevStep, onSubmit }) => {
   const {
     register,
     handleSubmit,
@@ -27,21 +26,17 @@ const HealthSafety = ({ formData, setFormData, prevStep }) => {
     mode: "onChange",
   });
 
-  const onSubmit = (data) => {
-    const finalData = { ...formData, ...data };
-    setFormData(finalData);
-    
-    // Here you would typically send the data to your backend
-    console.log("Final form submission:", finalData);
-    alert("Application submitted successfully! We will contact you soon.");
+  const handleFormSubmit = (data) => {
+    setFormData({ ...formData, ...data });
+    onSubmit(data);
   };
 
   return (
     <FormContainer>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
         <FormHeader 
           title="Health & Safety Information"
-          description="Please provide important health information and emergency contact details for your Mars journey."
+          description="Please provide important health information and emergency contact details."
         />
 
         <div className="bg-yellow-50 p-4 rounded-md mb-6">
@@ -55,7 +50,7 @@ const HealthSafety = ({ formData, setFormData, prevStep }) => {
             {...register("healthDeclaration")}
             rows={4}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
-            placeholder="Please describe any medical conditions, allergies, medications, or health concerns that we should be aware of..."
+            placeholder="Please describe any medical conditions, allergies, medications, or health concerns..."
           />
         </FormField>
 

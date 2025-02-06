@@ -14,13 +14,6 @@ const schema = yup.object().shape({
     .date()
     .required("Return date is required")
     .min(yup.ref("departureDate"), "Return date must be after departure date")
-    .test("duration", "Trip duration must not exceed 2 years", function(value) {
-      const departure = this.parent.departureDate;
-      if (!departure || !value) return true;
-      const diff = value.getTime() - departure.getTime();
-      const years = diff / (1000 * 60 * 60 * 24 * 365);
-      return years <= 2;
-    }),
 });
 
 const TravelPreferences = ({ formData, setFormData, nextStep, prevStep }) => {
@@ -30,13 +23,31 @@ const TravelPreferences = ({ formData, setFormData, nextStep, prevStep }) => {
     formState: { errors },
   } = useForm({
     defaultValues: formData,
+    
     resolver: yupResolver(schema),
-    mode: "onChange",
+    mode: "onChange"
   });
 
   const onSubmit = (data) => {
-    setFormData({ ...formData, ...data });
+    // Format dates before saving
+    const formattedData = {
+      ...data,
+      departureDate: data.departureDate,
+      returnDate: data.returnDate
+    };
+    setFormData({ ...formData, ...formattedData });
     nextStep();
+  };
+
+  const handlePrevious = (e) => {
+    e.preventDefault();
+    // Save current form data even when going back
+    const currentFormData = {
+      departureDate: document.getElementById('departureDate').value,
+      returnDate: document.getElementById('returnDate').value
+    };
+    setFormData({ ...formData, ...currentFormData });
+    prevStep();
   };
 
   return (
@@ -44,7 +55,7 @@ const TravelPreferences = ({ formData, setFormData, nextStep, prevStep }) => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <FormHeader 
           title="Travel Details"
-          description="Please select your preferred travel dates for the Mars journey. Note that travel times are approximate and subject to planetary alignment."
+          description="Please select your preferred travel dates for the Mars journey."
         />
 
         <div className="bg-blue-50 p-4 rounded-md mb-6">
@@ -55,22 +66,26 @@ const TravelPreferences = ({ formData, setFormData, nextStep, prevStep }) => {
 
         <FormField label="Departure Date" error={errors.departureDate?.message}>
           <input
+            id="departureDate"
             type="date"
             {...register("departureDate")}
+            defaultValue={formData.departureDate}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
           />
         </FormField>
 
         <FormField label="Return Date" error={errors.returnDate?.message}>
           <input
+            id="returnDate"
             type="date"
             {...register("returnDate")}
+            defaultValue={formData.returnDate}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
           />
         </FormField>
 
         <div className="flex justify-between pt-4">
-          <Button onClick={prevStep} variant="secondary">
+          <Button type="button" onClick={handlePrevious} variant="secondary">
             Previous
           </Button>
           <Button type="submit" variant="primary">
