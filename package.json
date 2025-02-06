@@ -1,5 +1,6 @@
 {
   "name": "mars-visit-form",
+   "homepage": "https://github.com/hpv333/mars-visit-form.git",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
