@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mars-visit-form/static/css/main.92c8d4eb.css",
-    "main.js": "/mars-visit-form/static/js/main.c741e327.js",
-    "static/js/488.c5e56211.chunk.js": "/mars-visit-form/static/js/488.c5e56211.chunk.js",
+    "main.js": "/mars-visit-form/static/js/main.229fd3a8.js",
+    "static/js/488.2c2c4401.chunk.js": "/mars-visit-form/static/js/488.2c2c4401.chunk.js",
     "index.html": "/mars-visit-form/index.html",
     "main.92c8d4eb.css.map": "/mars-visit-form/static/css/main.92c8d4eb.css.map",
-    "main.c741e327.js.map": "/mars-visit-form/static/js/main.c741e327.js.map",
-    "488.c5e56211.chunk.js.map": "/mars-visit-form/static/js/488.c5e56211.chunk.js.map"
+    "main.229fd3a8.js.map": "/mars-visit-form/static/js/main.229fd3a8.js.map",
+    "488.2c2c4401.chunk.js.map": "/mars-visit-form/static/js/488.2c2c4401.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92c8d4eb.css",
-    "static/js/main.c741e327.js"
+    "static/js/main.229fd3a8.js"
   ]
 }
