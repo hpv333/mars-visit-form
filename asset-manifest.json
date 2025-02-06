@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hpv333/mars-visit-form.git/static/css/main.92c8d4eb.css",
-    "main.js": "/hpv333/mars-visit-form.git/static/js/main.cdc0f623.js",
+    "main.js": "/hpv333/mars-visit-form.git/static/js/main.f4ee0975.js",
     "static/js/488.c5e56211.chunk.js": "/hpv333/mars-visit-form.git/static/js/488.c5e56211.chunk.js",
     "index.html": "/hpv333/mars-visit-form.git/index.html",
     "main.92c8d4eb.css.map": "/hpv333/mars-visit-form.git/static/css/main.92c8d4eb.css.map",
-    "main.cdc0f623.js.map": "/hpv333/mars-visit-form.git/static/js/main.cdc0f623.js.map",
+    "main.f4ee0975.js.map": "/hpv333/mars-visit-form.git/static/js/main.f4ee0975.js.map",
     "488.c5e56211.chunk.js.map": "/hpv333/mars-visit-form.git/static/js/488.c5e56211.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92c8d4eb.css",
-    "static/js/main.cdc0f623.js"
+    "static/js/main.f4ee0975.js"
   ]
 }
