@@ -1,4 +1,3 @@
-﻿# Mars Visit Application Form
 # Mars Visit Application Form
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue?logo=github)](https://hpv333.github.io/mars-visit-form/)
